@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Find and Replace with String Methods</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <form action="#" method="post">
+            <div>
+                <label for="find">Find: </label>
+                <input type="text" id="find" />
+            </div>
+            <div>
+                <label for="replace">Replace: </label>
+                <input type="text" id="replace" />
+            </div>
+            <div>
+                <button id="btn">Replace</button>
+            </div>
+        </form>
+        <p class="target">"I came to realize that I have more to offer this world than just making things that blow up.
+            And that is why, effective immediately, I am shutting down the weapons manufacturing division of Stark
+            International until such a time as I can decide what the future of the company will be."
+            ―Tony Stark
+        </p>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let btn = document.getElementById('btn');
+            btn.addEventListener('click', doFindAndReplace);
+        });
+
+        function doFindAndReplace(ev) {
+            ev.preventDefault();
+
+            let find = document.getElementById('find').value;
+            let replace = document.getElementById('replace').value;
+
+            let p = document.querySelector('.target');
+
+            while (p.textContent.indexOf(find) != -1) {
+                p.textContent = p.textContent.replace(find, replace);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
